@@ -1,31 +1,26 @@
 package com.khubla.elk4j;
 
+import java.io.*;
+
+import com.google.gson.*;
+import com.khubla.elk4j.domain.*;
+
 public class ELKMarshaller {
-	// public static void exportGraph(GraphmlType graphmlType, OutputStream outputStream) throws
-	// IOException, JAXBException {
-	// if ((null != graphmlType) && (null != outputStream)) {
-	// final JAXBContext jc = JAXBContext.newInstance(PACKAGE);
-	// final Marshaller marshaller = jc.createMarshaller();
-	// marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-	// /*
-	// * marshal
-	// */
-	// final ObjectFactory objectFactory = new ObjectFactory();
-	// final JAXBElement<GraphmlType> je = objectFactory.createGraphml(graphmlType);
-	// marshaller.marshal(je, outputStream);
-	// }
-	// }
-	// public static GraphmlType importGraph(InputStream inputStream) throws IOException,
-	// JAXBException {
-	// if (null != inputStream) {
-	// final JAXBContext jc = JAXBContext.newInstance(PACKAGE);
-	// final Unmarshaller unmarshaller = jc.createUnmarshaller();
-	// @SuppressWarnings("unchecked")
-	// final JAXBElement<GraphmlType> je = (JAXBElement<GraphmlType>)
-	// unmarshaller.unmarshal(inputStream);
-	// return je.getValue();
-	// } else {
-	// return null;
-	// }
-	// }
+	private static Gson gson = new Gson();
+
+	public static String marshallGraph(Graph graph) throws IOException {
+		if (null != graph) {
+			return gson.toJson(graph);
+		} else {
+			return null;
+		}
+	}
+
+	public static Graph unmarshallGraph(String json) throws IOException {
+		if (null != json) {
+			return gson.fromJson(json, Graph.class);
+		} else {
+			return null;
+		}
+	}
 }
