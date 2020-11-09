@@ -28,6 +28,10 @@ public class Edge {
 		labels.add(label);
 	}
 
+	public void addLabel(String label) {
+		addLabel(new Label(label));
+	}
+
 	public void addSource(String source) {
 		if (null == sources) {
 			sources = new ArrayList<String>();

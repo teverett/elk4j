@@ -9,6 +9,10 @@ public class Sized {
 	private Integer height;
 	private List<Label> labels = null;
 
+	public void addLabel(String label) {
+		addLabel(new Label(label));
+	}
+
 	public void addLabel(Label label) {
 		if (null == labels) {
 			labels = new ArrayList<Label>();
