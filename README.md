@@ -1,4 +1,4 @@
-![CI](https://github.com/teverett/dot4j/workflows/CI/badge.svg)
+![CI](https://github.com/teverett/elk4j/workflows/CI/badge.svg)
 
 # ELK4J
 
